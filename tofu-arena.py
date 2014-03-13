@@ -2,9 +2,11 @@ from bottle import route, run, request
 
 from schema import schema, game_schema
 from game import make_game_maker
+from webserver import get_teams
+
 
 TOTAL_GAMES = 50
-TEAMS = ['alice-team', 'bob-team']
+TEAMS = get_teams('http://localhost:8000', 'megaminerai-9-space')
 
 make_game = make_game_maker(TEAMS, TOTAL_GAMES)
 
